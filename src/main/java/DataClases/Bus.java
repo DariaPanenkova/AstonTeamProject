@@ -1,9 +1,9 @@
-package main.DataClases;
+package main.java.DataClases;
 
 public class Bus {
-    private int    num;
-    private String model;
-    private int    mileage;
+    private Integer    num;
+    private String     model;
+    private Integer    mileage;
 
     public Bus(BusBuilder busBuilder) {
         this.num = busBuilder.num;
@@ -11,7 +11,7 @@ public class Bus {
         this.mileage = busBuilder.mileage;
     }
 
-    public int getNum() {
+    public Integer getNum() {
         return num;
     }
 
@@ -19,16 +19,16 @@ public class Bus {
         return model;
     }
 
-    public int getMileage() {
+    public Integer getMileage() {
         return mileage;
     }
 
     public static class BusBuilder {
-        private int num;
+        private Integer num;
         private String model;
-        private int mileage;
+        private Integer mileage;
 
-        public BusBuilder setNum(int num) {
+        public BusBuilder setNum(Integer num) {
             this.num = num;
             return this;
         }
@@ -38,7 +38,7 @@ public class Bus {
             return this;
         }
 
-        public BusBuilder setMileage(int mileage) {
+        public BusBuilder setMileage(Integer mileage) {
             this.mileage = mileage;
             return this;
         }
