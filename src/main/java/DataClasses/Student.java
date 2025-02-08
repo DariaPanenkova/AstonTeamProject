@@ -1,4 +1,4 @@
-package main.java.DataClasses;
+package DataClasses;
 
 public class Student {
     private int gradeBookNum;
