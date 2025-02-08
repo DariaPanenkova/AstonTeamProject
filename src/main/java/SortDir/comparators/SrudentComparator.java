@@ -1,4 +1,4 @@
-package SortDir.Comparators;
+package SortDir.comparators;
 
 import DataClasses.Student;
 

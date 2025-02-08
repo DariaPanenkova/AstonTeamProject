@@ -1,7 +1,7 @@
 package Client;
 
 import DataClasses.Bus;
-import SortDir.QuickSorts.QuickSortBus;
+import SortDir.quickSorts.QuickSortBus;
 
 public class Main {
     public static void main(String[] args) {
