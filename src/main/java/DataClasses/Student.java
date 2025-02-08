@@ -1,5 +1,7 @@
 package DataClasses;
 
+import java.util.Objects;
+
 public class Student {
     private int gradeBookNum;
     private String group;
@@ -21,6 +23,30 @@ public class Student {
 
     public String getGroup() {
         return group;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if(!(obj instanceof Bus)) {
+            return false;
+        }
+        Student student = (Student) obj;
+        return  gradeBookNum == student.gradeBookNum
+                &&  Objects.equals(group, student.group)
+                &&  averageGrade == student.averageGrade;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gradeBookNum, group, averageGrade);
+    }
+
+    @Override
+    public String toString() {
+        return "Номер зачетной книжки: " + gradeBookNum + "Номер группы: " + group + " Средний балл: "  + averageGrade;
     }
 
     public static class StudentBuilder {
