@@ -1,5 +1,7 @@
 package DataClasses;
 
+import java.util.Objects;
+
 public class User {
     private String name;
     private String password;
@@ -21,6 +23,30 @@ public class User {
 
     public String getMail() {
         return mail;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if(!(obj instanceof Bus)) {
+            return false;
+        }
+        User user = (User) obj;
+        return  Objects.equals(name, user.name)
+                &&  Objects.equals(password, user.password)
+                &&  Objects.equals(mail, user.mail);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, password, mail);
+    }
+
+    @Override
+    public String toString() {
+        return "Имя пользователя: " + name + "Пароль: " + password + " Почта: "  + mail;
     }
 
     public static class UserBuilder {

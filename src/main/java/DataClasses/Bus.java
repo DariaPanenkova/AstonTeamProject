@@ -1,5 +1,7 @@
 package DataClasses;
 
+import java.util.Objects;
+
 public class Bus {
     private int    num;
     private String model;
@@ -22,6 +24,31 @@ public class Bus {
     public int getMileage() {
         return mileage;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if(!(obj instanceof Bus)) {
+            return false;
+        }
+        Bus bus = (Bus) obj;
+        return  num == bus.num
+                &&  Objects.equals(model, bus.model)
+                &&  mileage == bus.mileage;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(num, model, mileage);
+    }
+
+    @Override
+    public String toString() {
+        return "Номер автобуса: " + num + " Модель: " + model + " Пробег: " + mileage;
+    }
+
 
     public static class BusBuilder {
         private int num;
