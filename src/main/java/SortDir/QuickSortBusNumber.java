@@ -1,12 +1,14 @@
 package SortDir;
 
+import DataClasses.Bus;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
 public class QuickSortBusNumber implements QuickSortBusStrategy {
     @Override
     public void sort(Bus[] buses) {
-        Comparator<Bus> comparator = Comparator.comparingInt(Bus::getMileage);
+        Comparator<Bus> comparator = Comparator.comparingInt(Bus::getNum);
         QuickSort<Bus> quickSort = new QuickSort<>(comparator);
 
         System.out.println("Before sorting:");

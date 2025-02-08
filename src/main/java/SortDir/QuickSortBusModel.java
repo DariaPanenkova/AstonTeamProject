@@ -1,5 +1,7 @@
 package SortDir;
 
+import DataClasses.Bus;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
