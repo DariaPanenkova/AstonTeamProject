@@ -1,9 +1,9 @@
-package main.java.DataClases;
+package main.java.DataClasses;
 
 public class Student {
-    private Integer gradeBookNum;
+    private int gradeBookNum;
     private String group;
-    private Double averageGrade;
+    private double averageGrade;
 
     public Student(StudentBuilder studentBuilder) {
         this.gradeBookNum = studentBuilder.gradeBookNum;
@@ -15,7 +15,7 @@ public class Student {
         return gradeBookNum;
     }
 
-    public Double getAverageGrade() {
+    public double getAverageGrade() {
         return averageGrade;
     }
 
@@ -24,11 +24,11 @@ public class Student {
     }
 
     public static class StudentBuilder {
-        private Integer    gradeBookNum;
+        private int    gradeBookNum;
         private String group;
-        private Double averageGrade;
+        private double averageGrade;
 
-        public StudentBuilder setGradeBookNum(Integer gradeBookNum) {
+        public StudentBuilder setGradeBookNum(int gradeBookNum) {
             this.gradeBookNum = gradeBookNum;
             return this;
         }
@@ -38,7 +38,7 @@ public class Student {
             return this;
         }
 
-        public StudentBuilder setAverageGrade(Double averageGrade) {
+        public StudentBuilder setAverageGrade(double averageGrade) {
             this.averageGrade = averageGrade;
             return this;
         }

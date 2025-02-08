@@ -1,4 +1,4 @@
-package main.java.DataClases;
+package main.java.DataClasses;
 
 public class User {
     private String name;

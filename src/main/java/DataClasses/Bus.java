@@ -1,8 +1,8 @@
-package main.java.DataClases;
+package DataClasses;
 
 public class Bus {
-    private Integer    num;
-    private String     model;
+    private int    num;
+    private String model;
     private int    mileage;
 
     public Bus(BusBuilder busBuilder) {
