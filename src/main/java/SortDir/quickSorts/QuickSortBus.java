@@ -14,9 +14,6 @@ public class QuickSortBus implements QuickSortStrategy<Bus> {
         Comparator<Bus> comparator = new BusComparator();
         QuickSort<Bus> quickSort = new QuickSort<>(comparator);
 
-        quickSort.sort((Bus[])arr);
-
-
-        return arr;
+        return quickSort.sort(arr);
     }
 }
