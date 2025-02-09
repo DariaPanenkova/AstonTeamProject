@@ -13,7 +13,7 @@ public class QuickSort<T> {
 
     public T[] sort(T[] array) {
         T[] copy = Arrays.copyOf(array, array.length);
-        quickSort(array, 0, array.length-1);
+        quickSort(copy, 0, copy.length-1);
         return copy;
     }
 
