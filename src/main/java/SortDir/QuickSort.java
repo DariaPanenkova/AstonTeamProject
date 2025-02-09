@@ -10,8 +10,9 @@ public class QuickSort<T> {
         this.comparator = comparator;
     }
 
-    public void sort(T[] array) {
+    public T[] sort(T[] array) {
         quickSort(array, 0, array.length-1);
+        return array;
     }
 
     private void quickSort(T[] array, int low, int high) {
