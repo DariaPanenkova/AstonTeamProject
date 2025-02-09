@@ -1,5 +1,6 @@
 package SortDir;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class QuickSort<T> {
@@ -10,8 +11,10 @@ public class QuickSort<T> {
         this.comparator = comparator;
     }
 
-    public void sort(T[] array) {
+    public T[] sort(T[] array) {
+        T[] copy = Arrays.copyOf(array, array.length);
         quickSort(array, 0, array.length-1);
+        return copy;
     }
 
     private void quickSort(T[] array, int low, int high) {
@@ -40,23 +43,4 @@ public class QuickSort<T> {
         array[i] = array[j];
         array[j] = temp;
     }
-    /*public static void main(String[] args) {
-        Bus[] buses = {new Bus.BusBuilder().setNum(3).setModel("A").setMileage(1000).build(),
-                new Bus.BusBuilder().setNum(4).setModel("D").setMileage(1200).build(),
-                new Bus.BusBuilder().setNum(2).setModel("C").setMileage(800).build(),
-                new Bus.BusBuilder().setNum(1).setModel("B").setMileage(900).build()};
-
-        Comparator<Bus> comparator = Comparator.comparingInt(Bus::getMileage);
-        QuickSort<Bus> quickSort = new QuickSort<>(comparator);
-
-        System.out.println("Before sorting:");
-        System.out.println(Arrays.toString(buses));
-
-        quickSort.sort(buses);
-
-        System.out.println("After sorting:");
-        System.out.println(Arrays.toString(buses));
-        QuickSortBusNumber quickSortBusNumber = new QuickSortBusNumber();
-        quickSortBusNumber.sort(buses);
-    }*/
 }
