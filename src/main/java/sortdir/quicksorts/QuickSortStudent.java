@@ -1,4 +1,4 @@
-package sortdir.quickSorts;
+package sortdir.quicksorts;
 
 import classes.Student;
 import sortdir.comparators.SrudentComparator;

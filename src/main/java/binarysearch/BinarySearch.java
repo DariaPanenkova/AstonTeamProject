@@ -2,7 +2,7 @@ package binarysearch;
 
 import java.util.Comparator;
 
-public class binarySearch {
+public class BinarySearch {
 
     // Метод бинарного поиска
     public static <T> int binarySearch(T[] array, T key, Comparator<? super T> comparator) {
