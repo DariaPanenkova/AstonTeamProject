@@ -1,4 +1,6 @@
-package org.astondreamteam.classes;
+package classes;
+
+import java.util.Objects;
 
 public class Student {
     private int gradeBookNum;
@@ -23,13 +25,38 @@ public class Student {
         return group;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if(!(obj instanceof Bus)) {
+            return false;
+        }
+        Student student = (Student) obj;
+        return  gradeBookNum == student.gradeBookNum
+                &&  Objects.equals(group, student.group)
+                &&  averageGrade == student.averageGrade;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gradeBookNum, group, averageGrade);
+    }
+
+    @Override
+    public String toString() {
+        return "Номер зачетной книжки: " + gradeBookNum + "Номер группы: " + group + " Средний балл: "  + averageGrade;
+    }
+
     public static class StudentBuilder {
-        private int gradeBookNum;
+        private int    gradeBookNum;
         private String group;
         private double averageGrade;
 
-        StudentBuilder(int gradeBookNum) {
+        public StudentBuilder setGradeBookNum(int gradeBookNum) {
             this.gradeBookNum = gradeBookNum;
+            return this;
         }
 
         public StudentBuilder setGroup(String group) {
@@ -46,9 +73,4 @@ public class Student {
             return new Student(this);
         }
     }
-
-//    public static void main(String[] args) {
-//        Student student = new StudentBuilder(558)
-//                .setAverageGrade(4.8).build();
-//    }
 }

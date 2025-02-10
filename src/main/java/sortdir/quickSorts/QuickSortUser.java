@@ -1,9 +1,9 @@
-package SortDir.quickSorts;
+package sortdir.quickSorts;
 
-import DataClasses.User;
-import SortDir.QuickSort;
-import SortDir.QuickSortStrategy;
-import SortDir.comparators.UserComparator;
+import classes.User;
+import sortdir.QuickSort;
+import sortdir.QuickSortStrategy;
+import sortdir.comparators.UserComparator;
 
 import java.util.Comparator;
 

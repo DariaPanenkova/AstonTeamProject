@@ -1,4 +1,6 @@
-package org.astondreamteam.classes;
+package classes;
+
+import java.util.Objects;
 
 public class User {
     private String name;
@@ -23,13 +25,38 @@ public class User {
         return mail;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if(!(obj instanceof Bus)) {
+            return false;
+        }
+        User user = (User) obj;
+        return  Objects.equals(name, user.name)
+                &&  Objects.equals(password, user.password)
+                &&  Objects.equals(mail, user.mail);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, password, mail);
+    }
+
+    @Override
+    public String toString() {
+        return "Имя пользователя: " + name + "Пароль: " + password + " Почта: "  + mail;
+    }
+
     public static class UserBuilder {
         private String name;
         private String password;
         private String mail;
 
-        UserBuilder(String name) {
+        public UserBuilder setName(String name) {
             this.name = name;
+            return this;
         }
 
         public UserBuilder setPassword(String password) {
@@ -46,9 +73,4 @@ public class User {
             return new User(this);
         }
     }
-
-//    public static void main(String[] args) {
-//        User user = new UserBuilder("Annie").createUser();
-//        System.out.println(user.getName());
-//    }
 }

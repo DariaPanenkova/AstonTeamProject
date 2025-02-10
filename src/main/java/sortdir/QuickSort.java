@@ -1,4 +1,4 @@
-package SortDir;
+package sortdir;
 
 import java.util.Arrays;
 import java.util.Comparator;

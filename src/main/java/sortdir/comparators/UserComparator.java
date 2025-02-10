@@ -1,6 +1,6 @@
-package SortDir.comparators;
+package sortdir.comparators;
 
-import DataClasses.User;
+import classes.User;
 
 import java.util.Comparator;
 
