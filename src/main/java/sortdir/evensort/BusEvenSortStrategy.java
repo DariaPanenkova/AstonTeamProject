@@ -4,11 +4,10 @@ import classes.Bus;
 
 import java.util.Comparator;
 
-public class BusEvenSortStrategy implements EvenSortStrategy{
+public class BusEvenSortStrategy implements EvenSortStrategy<Bus>{
     @Override
-    public Comparator getComparator() {
-        Comparator<Bus> comparator = Comparator.comparingInt(Bus::getNum);
-        return comparator;
+    public Comparator<Bus> getComparator() {
+        return Comparator.comparingInt(Bus::getNum);
     }
 
     @Override
