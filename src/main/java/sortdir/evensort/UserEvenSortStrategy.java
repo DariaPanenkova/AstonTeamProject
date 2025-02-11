@@ -1,15 +1,13 @@
 package sortdir.evensort;
 
-import classes.Bus;
 import classes.User;
 
 import java.util.Comparator;
 
-public class UserEvenSortStrategy implements EvenSortStrategy{
+public class UserEvenSortStrategy implements EvenSortStrategy<User>{
     @Override
     public Comparator<User> getComparator() {
-        Comparator<User> comparator = Comparator.comparingInt(user -> user.getPassword().length());
-        return comparator;
+        return Comparator.comparingInt(user -> user.getPassword().length());
     }
 
     @Override
