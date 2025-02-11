@@ -4,7 +4,7 @@ import classes.Student;
 
 import java.util.Comparator;
 
-public class SrudentComparator implements Comparator<Student> {
+public class StudentComparator implements Comparator<Student> {
     @Override
     public int compare(Student o1, Student o2) {
         if (o1.getGradeBookNum()-o2.getGradeBookNum()!=0)
