@@ -1,9 +1,9 @@
-package SortDir.quickSorts;
+package sortdir.quicksorts;
 
-import DataClasses.Student;
-import SortDir.comparators.SrudentComparator;
-import SortDir.QuickSort;
-import SortDir.QuickSortStrategy;
+import classes.Student;
+import sortdir.comparators.StudentComparator;
+import sortdir.QuickSort;
+import sortdir.QuickSortStrategy;
 
 import java.util.Comparator;
 
@@ -11,7 +11,7 @@ public class QuickSortStudent implements QuickSortStrategy<Student> {
     @Override
     public Student[] sort(Student[] arr) {
 
-        Comparator<Student> comparator = new SrudentComparator();
+        Comparator<Student> comparator = new StudentComparator();
         QuickSort<Student> quickSort = new QuickSort<>(comparator);
 
         return quickSort.sort(arr);
