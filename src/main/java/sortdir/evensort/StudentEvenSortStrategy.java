@@ -4,11 +4,10 @@ import classes.Student;
 
 import java.util.Comparator;
 
-public class StudentEvenSortStrategy implements EvenSortStrategy{
+public class StudentEvenSortStrategy implements EvenSortStrategy<Student>{
     @Override
-    public Comparator getComparator() {
-        Comparator<Student> comparator = Comparator.comparingInt(Student::getGradeBookNum);
-        return comparator;
+    public Comparator<Student> getComparator() {
+        return Comparator.comparingInt(Student::getGradeBookNum);
     }
 
     @Override
