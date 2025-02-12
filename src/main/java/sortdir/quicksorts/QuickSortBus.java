@@ -1,9 +1,9 @@
 package sortdir.quicksorts;
 
 import classes.Bus;
-import sortdir.comparators.BusComparator;
 import sortdir.QuickSort;
 import sortdir.QuickSortStrategy;
+import sortdir.comparators.BusComparator;
 
 import java.util.Comparator;
 

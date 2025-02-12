@@ -8,13 +8,15 @@ import randomizer.Randomizer;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.random.RandomGenerator;
 
 public class ArrayFill {
-    public static void fromFile(String filepath, Object[] array) throws IOException {
+    public static Object[] fromFile(String filepath, Object[] array) throws IOException {
         try (FileReader fr = new FileReader(filepath); BufferedReader br = new BufferedReader(fr)) {
             String line;
             String[] tokens;
@@ -38,8 +40,9 @@ public class ArrayFill {
                             System.out.println("Неверный формат имени пользователя. Имя не должно содержать цифры и знаки");
                     }
                     if (ArrayCheck.isStudentsArray(array)) {
+                        BigDecimal bd = BigDecimal.valueOf(Double.parseDouble(tokens[2]));
                         if (FormatChecker.checkStudent(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[2]))) {
-                            array[count] = new Student.StudentBuilder().setGradeBookNum(Integer.parseInt(tokens[0])).setGroup(tokens[1]).setAverageGrade(Double.parseDouble(tokens[2])).build();
+                            array[count] = new Student.StudentBuilder().setGradeBookNum(Integer.parseInt(tokens[0])).setGroup(tokens[1]).setAverageGrade(Double.parseDouble(String.valueOf(bd.setScale(2, RoundingMode.HALF_EVEN)))).build();
                         } else
                             System.out.println("Массив не создан. Номер зачётной книжки и средней оценки должен быть больше 0");
                     }
@@ -51,11 +54,12 @@ public class ArrayFill {
                 count++;
             }
             System.out.println(Arrays.toString(array) + "\n");
+            return array;
         }
 
     }
 
-    public static void randomFill(Object[] array) {
+    public static Object[] randomFill(Object[] array) {
         Random random = Random.from(RandomGenerator.getDefault());
         if (ArrayCheck.isBusArray(array)) {
             for (int i = 0; i < array.length; i++) {
@@ -65,7 +69,8 @@ public class ArrayFill {
         }
         if (ArrayCheck.isStudentsArray(array)) {
             for (int i = 0; i < array.length; i++) {
-                array[i] = new Student.StudentBuilder().setGradeBookNum(random.nextInt(1, 1000)).setAverageGrade(random.nextDouble(0, 5.0)).setGroup(Randomizer.groupRandomizer()).build();
+                BigDecimal bd = BigDecimal.valueOf(random.nextDouble(0, 5));
+                array[i] = new Student.StudentBuilder().setGradeBookNum(random.nextInt(1, 1000)).setAverageGrade(Double.parseDouble(String.valueOf(bd.setScale(2, RoundingMode.HALF_EVEN)))).setGroup(Randomizer.groupRandomizer()).build();
             }
             System.out.println(Arrays.toString(array) + "\n");
         }
@@ -76,9 +81,10 @@ public class ArrayFill {
             }
             System.out.println(Arrays.toString(array) + "\n");
         }
+        return array;
     }
 
-    public static void manualFill(Object[] array) {
+    public static Object[] manualFill(Object[] array) {
         Scanner console = new Scanner(System.in);
         try {
             if (ArrayCheck.isBusArray(array)) {
@@ -95,7 +101,6 @@ public class ArrayFill {
                     } else
                         System.out.println("Массив не создан. Номер должен быть положительным, пробег не должен быть отрицательным");
                 }
-
                 System.out.println(Arrays.toString(array) + "\n");
             }
             if (ArrayCheck.isUsersArray(array)) {
@@ -133,5 +138,6 @@ public class ArrayFill {
         } catch (NumberFormatException e) {
             System.out.println("Неверный формат ввода");
         }
+        return array;
     }
 }

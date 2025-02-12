@@ -1,11 +1,12 @@
 package cycles;
 
 import arrays.ArrayFill;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 public class DataInputTypeCycle {
-    public static void inputData(Object[] array) throws IOException {
+    public static Object[] inputData(Object[] array) throws IOException {
         Scanner console = new Scanner(System.in);
         while (true) {
             System.out.println("Тип заполняемого массива: " + array.getClass().getSimpleName());
@@ -25,16 +26,13 @@ public class DataInputTypeCycle {
                     if (path.equalsIgnoreCase("0")) {
                         break;
                     }
-                    ArrayFill.fromFile(path, array);
-                    break;
+                    return ArrayFill.fromFile(path, array);
                 }
                 case "2": {
-                    ArrayFill.randomFill(array);
-                    break;
+                    return ArrayFill.randomFill(array);
                 }
                 case "3": {
-                    ArrayFill.manualFill(array);
-                    break;
+                    return ArrayFill.manualFill(array);
                 }
                 default: {
                     System.out.println("Неверный ввод \n");
@@ -43,6 +41,6 @@ public class DataInputTypeCycle {
             }
             break;
         }
-
+        return null;
     }
 }

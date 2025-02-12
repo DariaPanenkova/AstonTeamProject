@@ -1,9 +1,9 @@
 package sortdir.quicksorts;
 
 import classes.Student;
-import sortdir.comparators.StudentComparator;
 import sortdir.QuickSort;
 import sortdir.QuickSortStrategy;
+import sortdir.comparators.StudentComparator;
 
 import java.util.Comparator;
 

@@ -2,8 +2,10 @@ package cycles;
 
 import arrays.Ask;
 import arrays.CreateArray;
+import sortdir.quicksorts.QuickSortData;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserCycle {
@@ -19,12 +21,12 @@ public class UserCycle {
             int size = 0;
             try {
                 type = Ask.askType(Integer.parseInt(console.nextLine()));
-                if (type == 0){
+                if (type == 0) {
                     break;
                 }
                 System.out.println("Введите размер создаваемого массива, или \"0\" для отмены");
                 size = Integer.parseInt(console.nextLine());
-                if (size == 0){
+                if (size == 0) {
                     break;
                 }
             } catch (NumberFormatException e) {
@@ -32,10 +34,14 @@ public class UserCycle {
                 type = 0;
             }
             try {
-                DataInputTypeCycle.inputData(CreateArray.createArray(type,size));
+                Object[] array = DataInputTypeCycle.inputData(CreateArray.createArray(type, size));
+                QuickSortData<Object> sortData = new QuickSortData<>();
+                System.out.println("Отсортированый массив:\n" + Arrays.toString(sortData.sort(array)));
+                SearchCycle<Object> search = new SearchCycle<>();
+                search.search(array);
             } catch (NullPointerException e) {
                 System.out.println();
             }
         }
-        }
     }
+}
