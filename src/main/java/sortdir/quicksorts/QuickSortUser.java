@@ -1,4 +1,4 @@
-package sortdir.quickSorts;
+package sortdir.quicksorts;
 
 import classes.User;
 import sortdir.QuickSort;

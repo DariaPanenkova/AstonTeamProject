@@ -14,6 +14,6 @@ public class ArrayCheck {
     }
 
     public static boolean isStudentsArray(Object[] array) {
-            return array.getClass() == Student[].class;
+        return array.getClass() == Student[].class;
     }
 }
