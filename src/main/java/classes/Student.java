@@ -30,7 +30,7 @@ public class Student {
         if (this == obj) {
             return true;
         }
-        if(!(obj instanceof Bus)) {
+        if(!(obj instanceof Student)) {
             return false;
         }
         Student student = (Student) obj;
@@ -46,7 +46,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Номер зачетной книжки: " + gradeBookNum + "Номер группы: " + group + " Средний балл: "  + averageGrade;
+        return "Номер зачетной книжки: " + gradeBookNum + " Номер группы: " + group + " Средний балл: "  + averageGrade;
     }
 
     public static class StudentBuilder {
