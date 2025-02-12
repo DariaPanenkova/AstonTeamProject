@@ -1,10 +1,13 @@
 package cycles;
 
+import arrays.Ask;
 import arrays.CreateArray;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 public class UserCycle {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner console = new Scanner(System.in);
         while (true) {
             System.out.println("""
@@ -12,32 +15,27 @@ public class UserCycle {
                     1 - Автобусы
                     2 - Студенты
                     3 - Пользователи""");
-            String line = console.nextLine();
-            if (line.equalsIgnoreCase("0")) {
-                break;
+            int type;
+            int size = 0;
+            try {
+                type = Ask.askType(Integer.parseInt(console.nextLine()));
+                if (type == 0){
+                    break;
+                }
+                System.out.println("Введите размер создаваемого массива, или \"0\" для отмены");
+                size = Integer.parseInt(console.nextLine());
+                if (size == 0){
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Неверный формат номера");
+                type = 0;
             }
-            switch (line) {
-                case "1": {
-                    if (CreateArray.createBusesArray() == 0) {
-                        break;
-                    }
-                    break;
-                }
-                case "2": {
-                    if (CreateArray.createStudentsArray() == 0) {
-                        break;
-                    }
-                    break;
-                }
-                case "3": {
-                    if (CreateArray.createUsersArray() == 0) {
-                        break;
-                    }
-                    break;
-                }
-                default:
-                    System.out.println("Неверный формат номера\n");
+            try {
+                DataInputTypeCycle.inputData(CreateArray.createArray(type,size));
+            } catch (NullPointerException e) {
+                System.out.println();
             }
         }
+        }
     }
-}

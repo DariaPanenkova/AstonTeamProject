@@ -1,15 +1,19 @@
 package arrays;
 
+import classes.Bus;
+import classes.Student;
+import classes.User;
+
 public class ArrayCheck {
     public static boolean isBusArray(Object[] array) {
-        return CreateArray.buses != null && array.getClass().getSimpleName().equals(CreateArray.buses.getClass().getSimpleName());
+        return array.getClass() == Bus[].class;
     }
 
     public static boolean isUsersArray(Object[] array) {
-        return CreateArray.users != null && array.getClass().getSimpleName().equals(CreateArray.users.getClass().getSimpleName());
+        return array.getClass() == User[].class;
     }
 
     public static boolean isStudentsArray(Object[] array) {
-        return CreateArray.students != null && array.getClass().getSimpleName().equals(CreateArray.students.getClass().getSimpleName());
+            return array.getClass() == Student[].class;
     }
 }

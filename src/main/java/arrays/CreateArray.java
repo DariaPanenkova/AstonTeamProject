@@ -3,73 +3,26 @@ package arrays;
 import classes.Bus;
 import classes.Student;
 import classes.User;
-import cycles.DataInputTypeCycle;
-import java.io.IOException;
-import java.util.Scanner;
 
 public class CreateArray {
-    public static Bus[] buses;
-    public static User[] users;
-    public static Student[] students;
 
-    public static int createBusesArray() {
-        try {
-            Scanner console = new Scanner(System.in);
-            System.out.println("Введите размер массива, или \"0\" для отмены");
-            String sizeInput = console.nextLine();
-            if (sizeInput.equalsIgnoreCase("0")) {
-                return 0;
-            }
-            int size = Integer.parseInt(sizeInput);
-            buses = new Bus[size];
-            System.out.println("Пустой массив автобусов успешно создан\n");
-            DataInputTypeCycle.inputData(buses);
-        } catch (NumberFormatException e) {
-            System.out.println("Неверный формат номера\n");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public static Object[] createArray(int type, int size) {
+        if (type == 0){
+            return null;
         }
-        return 1;
-    }
-
-    public static int createStudentsArray() {
-        try {
-            Scanner console = new Scanner(System.in);
-            System.out.println("Введите размер массива, или \"0\" для отмены");
-            String sizeInput = console.nextLine();
-            if (sizeInput.equalsIgnoreCase("0")) {
-                return 0;
-            }
-            int size = Integer.parseInt(sizeInput);
-            students = new Student[size];
-            System.out.println("Пустой массив студентов успешно создан\n");
-            DataInputTypeCycle.inputData(CreateArray.students);
-        } catch (NumberFormatException e) {
-            System.out.println("Неверный формат номера\n");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (type == 1){
+            System.out.println("Массив автобусов размером " + size + " успешно создан");
+            return new Bus[size];
         }
-        return 1;
-    }
-
-    public static int createUsersArray() {
-        try {
-            Scanner console = new Scanner(System.in);
-            System.out.println("Введите размер массива, или \"0\" для отмены");
-            String sizeInput = console.nextLine();
-            if (sizeInput.equalsIgnoreCase("0")) {
-                return 0;
-            }
-            int size = Integer.parseInt(sizeInput);
-            users = new User[size];
-            System.out.println("Пустой массив студентов успешно создан\n");
-            DataInputTypeCycle.inputData(CreateArray.users);
-        } catch (NumberFormatException e) {
-            System.out.println("Неверный формат номера \n");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (type == 2){
+            System.out.println("Массив студентов размером " + size + " успешно создан");
+            return new Student[size];
         }
-        return 1;
+        if (type == 3){
+            System.out.println("Массив пользователей размером " + size + " успешно создан");
+            return new User[size];
+        }
+        System.out.println("Массив не создан");
+        return null;
     }
 }
-
