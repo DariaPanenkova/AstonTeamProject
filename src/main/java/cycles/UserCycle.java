@@ -2,10 +2,12 @@ package cycles;
 
 import arrays.Ask;
 import arrays.CreateArray;
+import savetofile.SaveToFile;
 import sortdir.quicksorts.QuickSortData;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class UserCycle {
@@ -37,8 +39,25 @@ public class UserCycle {
                 Object[] array = DataInputTypeCycle.inputData(CreateArray.createArray(type, size));
                 QuickSortData<Object> sortData = new QuickSortData<>();
                 System.out.println("Отсортированый массив:\n" + Arrays.toString(sortData.sort(array)));
+                Object[] arr = sortData.sort(array);
                 SearchCycle<Object> search = new SearchCycle<>();
-                search.search(array);
+                System.out.println("Хотите сохранить отсортированный массив?\n\"+\" - да");
+                if (Objects.equals(console.nextLine(), "+")) {
+                    SaveToFile.getPathAndSave(sortData.sort(array));
+                }
+                int index = 0;
+                System.out.println("Хотите найти объект в массиве?\n\"+\" - да");
+                if (Objects.equals(console.nextLine(), "+")) {
+                    index = search.search(arr);
+                    if (index == -1) {
+                        continue;
+                    }
+                }
+                System.out.println("Хотите сохранить объект в файл?\n\"+\" - да");
+                if (Objects.equals(console.nextLine(), "+")) {
+                    SaveToFile.getPathAndSave(arr[index]);
+                }
+
             } catch (NullPointerException e) {
                 System.out.println();
             }
