@@ -1,11 +1,11 @@
-package cycles;
+package client;
 
 import arrays.ArrayFill;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class DataInputTypeCycle {
+public class DataInputLoop {
     public static Object[] inputData(Object[] array) throws IOException {
         Scanner console = new Scanner(System.in);
         while (true) {

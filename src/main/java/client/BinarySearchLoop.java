@@ -1,4 +1,4 @@
-package cycles;
+package client;
 
 import binarysearch.DataBinarySearch;
 import classes.Bus;
@@ -7,7 +7,7 @@ import classes.User;
 
 import java.util.Scanner;
 
-public class SearchCycle<T> {
+public class BinarySearchLoop<T> {
 
     public int search(T[] array) {
         Scanner console = new Scanner(System.in);

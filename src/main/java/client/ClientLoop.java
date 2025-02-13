@@ -1,8 +1,6 @@
 package client;
 
 import arrays.CreateArray;
-import cycles.DataInputTypeCycle;
-import cycles.SearchCycle;
 import savetofile.SaveToFile;
 import sortdir.evensort.EvenSortData;
 import sortdir.quicksorts.DataQuickSort;
@@ -29,8 +27,10 @@ public class ClientLoop {
             }
 
             try {
-                Object[] array = DataInputTypeCycle.inputData(CreateArray.createArray(type, size));
+                // Создание + заполнение массива
+                Object[] array = DataInputLoop.inputData(CreateArray.createArray(type, size));
 
+                //Варианты действий с массивом
                 int action = actionArrayMenu(array);
 
                 if (action == 0) {
@@ -43,7 +43,6 @@ public class ClientLoop {
         }
     }
 
-    // Метод для получения типа массива
     private static int getArrayType() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -57,12 +56,11 @@ public class ClientLoop {
                 }
             } else {
                 System.out.println("Недопустимый ввод. Пожалуйста, введите число.");
-                scanner.next(); // Очистка некорректного ввода
+                scanner.next();
             }
         }
     }
 
-    // Метод для получения длины массива
     private static int getArrayLength() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -76,12 +74,11 @@ public class ClientLoop {
                 }
             } else {
                 System.out.println("Недопустимый ввод. Пожалуйста, введите число.");
-                scanner.next(); // Очистка некорректного ввода
+                scanner.next();
             }
         }
     }
 
-    // Шаг вопрос сортировка или поиск?
     private static int actionArrayMenu(Object[] array) {
         Scanner scanner = new Scanner(System.in);
         Object[] sortArray = DataQuickSort.sort(array);
@@ -90,7 +87,7 @@ public class ClientLoop {
             System.out.print("Выберите действие (1 - Кастомная сортировка, 2 - Бинарный поиск, 3 - Создать новый массив, 0 - выход): ");
             if (scanner.hasNextInt()) {
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Очистка буфера
+                scanner.nextLine();
 
                 switch (choice) {
                     case 1:
@@ -109,7 +106,7 @@ public class ClientLoop {
                 }
             } else {
                 System.out.println("Недопустимый ввод. Пожалуйста, введите число.");
-                scanner.nextLine(); // Очистка буфера
+                scanner.nextLine();
             }
         }
     }
@@ -128,7 +125,7 @@ public class ClientLoop {
             System.out.print("Сохранить отсортированный массив в файл? (1 - Да, 2 - Нет): ");
             if (scanner.hasNextInt()) {
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // Очистка буфера
+                scanner.nextLine();
                 switch (choice) {
                     case 1:
                         SaveToFile.getPathAndSave(evenArr);
@@ -140,7 +137,7 @@ public class ClientLoop {
                 }
             } else {
                 System.out.println("Недопустимый ввод. Пожалуйста, введите число.");
-                scanner.nextLine(); // Очистка буфера
+                scanner.nextLine();
             }
         }
     }
@@ -151,7 +148,7 @@ public class ClientLoop {
             return;
         }
 
-        SearchCycle<Object> search = new SearchCycle<>();
+        BinarySearchLoop<Object> search = new BinarySearchLoop<>();
 
         int index = search.search(sortArray);
         Scanner scanner = new Scanner(System.in);
@@ -160,7 +157,7 @@ public class ClientLoop {
                 System.out.print("Сохранить найденный элемент в файл? (1 - Да, 2 - Нет): ");
                 if (scanner.hasNextInt()) {
                     int choice = scanner.nextInt();
-                    scanner.nextLine(); // Очистка буфера
+                    scanner.nextLine();
                     switch (choice) {
                         case 1:
                             SaveToFile.getPathAndSave(sortArray[index]);
@@ -172,7 +169,7 @@ public class ClientLoop {
                     }
                 } else {
                     System.out.println("Недопустимый ввод. Пожалуйста, введите число.");
-                    scanner.nextLine(); // Очистка буфера
+                    scanner.nextLine();
                 }
             }
         }
