@@ -1,9 +1,9 @@
 package arrays;
 
 import dataclasses.Bus;
+import dataclasses.Randomizer;
 import dataclasses.Student;
 import dataclasses.User;
-import dataclasses.Randomizer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,7 +12,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.random.RandomGenerator;
 
 public class ArrayFill {
@@ -85,58 +84,14 @@ public class ArrayFill {
     }
 
     public static Object[] manualFill(Object[] array) {
-        Scanner console = new Scanner(System.in);
-        try {
             if (ArrayCheckType.isBusArray(array)) {
-                for (int i = 0; i < array.length; i++) {
-                    System.out.println("Автобус " + (i + 1) + "\n");
-                    System.out.println("Введите номер автобуса");
-                    int num = Integer.parseInt(console.nextLine());
-                    System.out.println("Введите модель автобуса");
-                    String model = console.nextLine();
-                    System.out.println("Введите пробег автобуса");
-                    int mileage = Integer.parseInt(console.nextLine());
-                    if (FormatChecker.checkBus(num, mileage)) {
-                        array[i] = new Bus.BusBuilder().setNum(num).setModel(model).setMileage(mileage).build();
-                    } else
-                        System.out.println("Автобус не создан. Номер должен быть положительным, пробег не должен быть отрицательным");
-                }
-                System.out.println(Arrays.toString(array) + "\n");
+                Manual.createBus((Bus[]) array);
             }
             if (ArrayCheckType.isUsersArray(array)) {
-                for (int i = 0; i < array.length; i++) {
-                    System.out.println("Пользователь " + (i + 1) + "\n");
-                    System.out.println("Введите имя пользователя");
-                    String name = console.nextLine();
-                    System.out.println("Введите пароль пользователя");
-                    String password = console.nextLine();
-                    System.out.println("Введите электронную почту пользователя");
-                    String mail = console.nextLine();
-                    if (!FormatChecker.checkUser(name)) {
-                        array[i] = new User.UserBuilder().setName(name).setPassword(password).setMail(mail).createUser();
-                    } else
-                        System.out.println("Пользователь не создан. Имя не должно содержать цифры и знаки");
-                }
-                System.out.println(Arrays.toString(array) + "\n");
+                Manual.createUser((User[]) array);
             }
             if (ArrayCheckType.isStudentsArray(array)) {
-                for (int i = 0; i < array.length; i++) {
-                    System.out.println("Студент " + (i + 1) + "\n");
-                    System.out.println("Введите номер зачётной книжки студента");
-                    int gradeBookNum = Integer.parseInt(console.nextLine());
-                    System.out.println("Введите группу студента");
-                    String group = console.nextLine();
-                    System.out.println("Введите среднюю оценку студента");
-                    double averageGrade = Double.parseDouble(console.nextLine());
-                    if (FormatChecker.checkStudent(gradeBookNum, averageGrade)) {
-                        array[i] = new Student.StudentBuilder().setGradeBookNum(gradeBookNum).setGroup(group).setAverageGrade(averageGrade).build();
-                    } else
-                        System.out.println("Студент не создан. Номер зачётной книжки и средней оценки должен быть больше 0");
-                }
-                System.out.println(Arrays.toString(array) + "\n");
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Неверный формат ввода");
+                Manual.createStudent((Student[]) array);
         }
         return array;
     }
