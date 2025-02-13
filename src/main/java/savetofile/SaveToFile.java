@@ -40,7 +40,8 @@ public final class SaveToFile {
             file.write("\n\n");
             System.out.println("Сохранение выполнено");
         } catch (IOException e) {
-            System.out.println("Произошла ошибка");
+            System.out.println("Необходимо еще указать имя файла");
+            getPathAndSave(array);
         }
     }
 
@@ -52,7 +53,8 @@ public final class SaveToFile {
                 file.write(element + "\n");
                 System.out.println("Сохранение выполнено");
             } catch (IOException e) {
-                System.out.println("Произошла ошибка");
+                System.out.println("Необходимо еще указать имя файла");
+                getPathAndSave(element);
             }
         }
     }
