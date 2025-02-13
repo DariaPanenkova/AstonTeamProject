@@ -3,7 +3,7 @@ package cycles;
 import arrays.Ask;
 import arrays.CreateArray;
 import savetofile.SaveToFile;
-import sortdir.quicksorts.QuickSortData;
+import sortdir.quicksorts.DataQuickSort;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -37,8 +37,8 @@ public class UserCycle {
             }
             try {
                 Object[] array = DataInputTypeCycle.inputData(CreateArray.createArray(type, size));
-                QuickSortData<Object> sortData = new QuickSortData<>();
-                System.out.println("Отсортированый массив:\n" + Arrays.toString(sortData.sort(array)));
+                DataQuickSort<Object> sortData = new DataQuickSort<>();
+                System.out.println("Отсортированный массив:\n" + Arrays.toString(sortData.sort(array)));
                 Object[] arr = sortData.sort(array);
                 SearchCycle<Object> search = new SearchCycle<>();
                 System.out.println("Хотите сохранить отсортированный массив?\n\"+\" - да");
