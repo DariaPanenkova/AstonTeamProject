@@ -16,7 +16,7 @@ public final class SaveToFile {
         try {
             path = scanner.nextLine();
             File file = new File(path);
-            if ((file.getParentFile().exists()) && (file.isFile())) {
+            if (file.getParentFile().exists()) {
                 if (o instanceof Object[]) {
                     saveToFile((T[]) o, path);
                 } else
