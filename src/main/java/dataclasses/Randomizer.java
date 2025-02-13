@@ -1,4 +1,4 @@
-package randomizer;
+package dataclasses;
 
 import java.util.Random;
 import java.util.random.RandomGenerator;

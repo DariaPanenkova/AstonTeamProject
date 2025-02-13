@@ -1,10 +1,10 @@
 package arrays;
 
-import classes.Bus;
-import classes.Student;
-import classes.User;
+import dataclasses.Bus;
+import dataclasses.Student;
+import dataclasses.User;
 
-public class ArrayCheck {
+public class ArrayCheckType {
     public static boolean isBusArray(Object[] array) {
         return array.getClass() == Bus[].class;
     }

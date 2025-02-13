@@ -1,8 +1,8 @@
 package sortdir.evensort;
 
-import classes.Bus;
-import classes.Student;
-import classes.User;
+import dataclasses.Bus;
+import dataclasses.Student;
+import dataclasses.User;
 
 public class EvenSortData {
     public static <T> T[] sort(T[] array) {

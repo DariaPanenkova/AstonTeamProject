@@ -1,6 +1,6 @@
 package sortdir.evensort;
 
-import classes.User;
+import dataclasses.User;
 
 import java.util.Comparator;
 
