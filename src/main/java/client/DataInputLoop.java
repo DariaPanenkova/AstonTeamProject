@@ -16,7 +16,7 @@ public class DataInputLoop {
                     2 - Случайные значения
                     3 - Вручную""");
             String input = console.nextLine();
-            if (input.equalsIgnoreCase("0")) {
+            if (input.equalsIgnoreCase("0")){
                 break;
             }
             switch (input) {
@@ -33,6 +33,9 @@ public class DataInputLoop {
                 }
                 case "3": {
                     return ArrayFill.manualFill(array);
+                }
+                case "0": {
+                    break;
                 }
                 default: {
                     System.out.println("Неверный ввод \n");

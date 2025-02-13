@@ -31,20 +31,20 @@ public class ArrayFill {
                         if (FormatChecker.checkBus(num, mileage)) {
                             array[count] = new Bus.BusBuilder().setNum(num).setModel(model).setMileage(mileage).build();
                         } else
-                            System.out.println("Массив не создан. Номер должен быть положительным, пробег не должен быть отрицательным");
+                            System.out.println("Автобус не создан. Номер должен быть положительным, пробег не должен быть отрицательным");
                     }
                     if (ArrayCheckType.isUsersArray(array)) {
                         if (!FormatChecker.checkUser(tokens[1])) {
                             array[count] = new User.UserBuilder().setName(tokens[0]).setPassword(tokens[1]).setMail(tokens[2]).createUser();
                         } else
-                            System.out.println("Неверный формат имени пользователя. Имя не должно содержать цифры и знаки");
+                            System.out.println("Пользователь не создан. Имя не должно содержать цифры и знаки");
                     }
                     if (ArrayCheckType.isStudentsArray(array)) {
                         BigDecimal bd = BigDecimal.valueOf(Double.parseDouble(tokens[2]));
                         if (FormatChecker.checkStudent(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[2]))) {
                             array[count] = new Student.StudentBuilder().setGradeBookNum(Integer.parseInt(tokens[0])).setGroup(tokens[1]).setAverageGrade(Double.parseDouble(String.valueOf(bd.setScale(2, RoundingMode.HALF_EVEN)))).build();
                         } else
-                            System.out.println("Массив не создан. Номер зачётной книжки и средней оценки должен быть больше 0");
+                            System.out.println("Студент не создан. Номер зачётной книжки и средней оценки должен быть больше 0");
                     }
                 } catch (ArrayIndexOutOfBoundsException e) {
                     System.out.println("Недостаточно места в массиве, для записи всех данных, увеличьте размер массива");
@@ -99,7 +99,7 @@ public class ArrayFill {
                     if (FormatChecker.checkBus(num, mileage)) {
                         array[i] = new Bus.BusBuilder().setNum(num).setModel(model).setMileage(mileage).build();
                     } else
-                        System.out.println("Массив не создан. Номер должен быть положительным, пробег не должен быть отрицательным");
+                        System.out.println("Автобус не создан. Номер должен быть положительным, пробег не должен быть отрицательным");
                 }
                 System.out.println(Arrays.toString(array) + "\n");
             }
@@ -115,7 +115,7 @@ public class ArrayFill {
                     if (!FormatChecker.checkUser(name)) {
                         array[i] = new User.UserBuilder().setName(name).setPassword(password).setMail(mail).createUser();
                     } else
-                        System.out.println("Неверный формат имени пользователя. Имя не должно содержать цифры и знаки");
+                        System.out.println("Пользователь не создан. Имя не должно содержать цифры и знаки");
                 }
                 System.out.println(Arrays.toString(array) + "\n");
             }
@@ -131,7 +131,7 @@ public class ArrayFill {
                     if (FormatChecker.checkStudent(gradeBookNum, averageGrade)) {
                         array[i] = new Student.StudentBuilder().setGradeBookNum(gradeBookNum).setGroup(group).setAverageGrade(averageGrade).build();
                     } else
-                        System.out.println("Массив не создан. Номер зачётной книжки и средней оценки должен быть больше 0");
+                        System.out.println("Студент не создан. Номер зачётной книжки и средней оценки должен быть больше 0");
                 }
                 System.out.println(Arrays.toString(array) + "\n");
             }
