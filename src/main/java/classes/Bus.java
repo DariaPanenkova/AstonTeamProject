@@ -3,9 +3,9 @@ package classes;
 import java.util.Objects;
 
 public class Bus {
-    private int    num;
-    private String model;
-    private int    mileage;
+    private final int num;
+    private final String model;
+    private final int mileage;
 
     public Bus(BusBuilder busBuilder) {
         this.num = busBuilder.num;
@@ -30,13 +30,12 @@ public class Bus {
         if (this == obj) {
             return true;
         }
-        if(!(obj instanceof Bus)) {
+        if (!(obj instanceof Bus bus)) {
             return false;
         }
-        Bus bus = (Bus) obj;
-        return  num == bus.num
-                &&  Objects.equals(model, bus.model)
-                &&  mileage == bus.mileage;
+        return num == bus.num
+                && Objects.equals(model, bus.model)
+                && mileage == bus.mileage;
     }
 
     @Override

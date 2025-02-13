@@ -3,9 +3,9 @@ package classes;
 import java.util.Objects;
 
 public class Student {
-    private int gradeBookNum;
-    private String group;
-    private double averageGrade;
+    private final int gradeBookNum;
+    private final String group;
+    private final double averageGrade;
 
     public Student(StudentBuilder studentBuilder) {
         this.gradeBookNum = studentBuilder.gradeBookNum;
@@ -30,13 +30,12 @@ public class Student {
         if (this == obj) {
             return true;
         }
-        if(!(obj instanceof Student)) {
+        if (!(obj instanceof Student student)) {
             return false;
         }
-        Student student = (Student) obj;
-        return  gradeBookNum == student.gradeBookNum
-                &&  Objects.equals(group, student.group)
-                &&  averageGrade == student.averageGrade;
+        return gradeBookNum == student.gradeBookNum
+                && Objects.equals(group, student.group)
+                && averageGrade == student.averageGrade;
     }
 
     @Override
@@ -46,11 +45,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Номер зачетной книжки: " + gradeBookNum + " Номер группы: " + group + " Средний балл: "  + averageGrade;
+        return "Номер зачетной книжки: " + gradeBookNum + " Номер группы: " + group + " Средний балл: " + averageGrade;
     }
 
     public static class StudentBuilder {
-        private int    gradeBookNum;
+        private int gradeBookNum;
         private String group;
         private double averageGrade;
 

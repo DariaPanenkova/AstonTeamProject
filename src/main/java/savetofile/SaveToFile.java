@@ -1,6 +1,8 @@
 package savetofile;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public final class SaveToFile {
@@ -47,7 +49,7 @@ public final class SaveToFile {
             System.out.println("Нечего сохранять");
         else {
             try (FileWriter file = new FileWriter(path, true)) {
-                file.write(element.toString() + "\n");
+                file.write(element + "\n");
                 System.out.println("Сохранение выполнено");
             } catch (IOException e) {
                 System.out.println("Произошла ошибка");
