@@ -1,6 +1,6 @@
 package sortdir.evensort;
 
-import classes.Bus;
+import dataclasses.Bus;
 
 import java.util.Comparator;
 

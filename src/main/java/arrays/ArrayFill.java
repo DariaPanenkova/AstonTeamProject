@@ -1,9 +1,9 @@
 package arrays;
 
-import classes.Bus;
-import classes.Student;
-import classes.User;
-import randomizer.Randomizer;
+import dataclasses.Bus;
+import dataclasses.Student;
+import dataclasses.User;
+import dataclasses.Randomizer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -24,7 +24,7 @@ public class ArrayFill {
             while ((line = br.readLine()) != null) {
                 tokens = line.split(" ");
                 try {
-                    if (ArrayCheck.isBusArray(array)) {
+                    if (ArrayCheckType.isBusArray(array)) {
                         int num = Integer.parseInt(tokens[0]);
                         String model = tokens[1];
                         int mileage = Integer.parseInt(tokens[2]);
@@ -33,13 +33,13 @@ public class ArrayFill {
                         } else
                             System.out.println("Массив не создан. Номер должен быть положительным, пробег не должен быть отрицательным");
                     }
-                    if (ArrayCheck.isUsersArray(array)) {
+                    if (ArrayCheckType.isUsersArray(array)) {
                         if (!FormatChecker.checkUser(tokens[1])) {
                             array[count] = new User.UserBuilder().setName(tokens[0]).setPassword(tokens[1]).setMail(tokens[2]).createUser();
                         } else
                             System.out.println("Неверный формат имени пользователя. Имя не должно содержать цифры и знаки");
                     }
-                    if (ArrayCheck.isStudentsArray(array)) {
+                    if (ArrayCheckType.isStudentsArray(array)) {
                         BigDecimal bd = BigDecimal.valueOf(Double.parseDouble(tokens[2]));
                         if (FormatChecker.checkStudent(Integer.parseInt(tokens[0]), Double.parseDouble(tokens[2]))) {
                             array[count] = new Student.StudentBuilder().setGradeBookNum(Integer.parseInt(tokens[0])).setGroup(tokens[1]).setAverageGrade(Double.parseDouble(String.valueOf(bd.setScale(2, RoundingMode.HALF_EVEN)))).build();
@@ -61,20 +61,20 @@ public class ArrayFill {
 
     public static Object[] randomFill(Object[] array) {
         Random random = Random.from(RandomGenerator.getDefault());
-        if (ArrayCheck.isBusArray(array)) {
+        if (ArrayCheckType.isBusArray(array)) {
             for (int i = 0; i < array.length; i++) {
                 array[i] = new Bus.BusBuilder().setNum(random.nextInt(1, 999)).setMileage(random.nextInt(0, 1000000)).setModel(Randomizer.modelRandomizer()).build();
             }
             System.out.println(Arrays.toString(array) + "\n");
         }
-        if (ArrayCheck.isStudentsArray(array)) {
+        if (ArrayCheckType.isStudentsArray(array)) {
             for (int i = 0; i < array.length; i++) {
                 BigDecimal bd = BigDecimal.valueOf(random.nextDouble(0, 5));
                 array[i] = new Student.StudentBuilder().setGradeBookNum(random.nextInt(1, 1000)).setAverageGrade(Double.parseDouble(String.valueOf(bd.setScale(2, RoundingMode.HALF_EVEN)))).setGroup(Randomizer.groupRandomizer()).build();
             }
             System.out.println(Arrays.toString(array) + "\n");
         }
-        if (ArrayCheck.isUsersArray(array)) {
+        if (ArrayCheckType.isUsersArray(array)) {
 
             for (int i = 0; i < array.length; i++) {
                 array[i] = new User.UserBuilder().setName(Randomizer.nameRandomizer()).setMail(Randomizer.mailRandomizer()).setPassword(Randomizer.passwordRandomizer()).createUser();
@@ -87,7 +87,7 @@ public class ArrayFill {
     public static Object[] manualFill(Object[] array) {
         Scanner console = new Scanner(System.in);
         try {
-            if (ArrayCheck.isBusArray(array)) {
+            if (ArrayCheckType.isBusArray(array)) {
                 for (int i = 0; i < array.length; i++) {
                     System.out.println("Автобус " + (i + 1) + "\n");
                     System.out.println("Введите номер автобуса");
@@ -103,7 +103,7 @@ public class ArrayFill {
                 }
                 System.out.println(Arrays.toString(array) + "\n");
             }
-            if (ArrayCheck.isUsersArray(array)) {
+            if (ArrayCheckType.isUsersArray(array)) {
                 for (int i = 0; i < array.length; i++) {
                     System.out.println("Пользователь " + (i + 1) + "\n");
                     System.out.println("Введите имя пользователя");
@@ -119,7 +119,7 @@ public class ArrayFill {
                 }
                 System.out.println(Arrays.toString(array) + "\n");
             }
-            if (ArrayCheck.isStudentsArray(array)) {
+            if (ArrayCheckType.isStudentsArray(array)) {
                 for (int i = 0; i < array.length; i++) {
                     System.out.println("Студент " + (i + 1) + "\n");
                     System.out.println("Введите номер зачётной книжки студента");
