@@ -1,6 +1,6 @@
 package cycles;
 
-import binarysearch.BinarySearchData;
+import binarysearch.DataBinarySearch;
 import classes.Bus;
 import classes.Student;
 import classes.User;
@@ -19,7 +19,7 @@ public class SearchCycle<T> {
             System.out.println("Введите пробег искомого автобуса");
             int mileage = Integer.parseInt(console.nextLine());
             Bus key = new Bus.BusBuilder().setNum(num).setModel(model).setMileage(mileage).build();
-            return BinarySearchData.binarySearch(array, key);
+            return DataBinarySearch.binarySearch(array, key);
         }
         if (array instanceof Student[]) {
             System.out.println("Введите номер зачётной книжки искомого студента");
@@ -29,7 +29,7 @@ public class SearchCycle<T> {
             System.out.println("Введите средний балл искомого студента");
             double averageGrade = Double.parseDouble(console.nextLine());
             Student key = new Student.StudentBuilder().setGradeBookNum(gradeBookNum).setGroup(group).setAverageGrade(averageGrade).build();
-            return BinarySearchData.binarySearch(array, key);
+            return DataBinarySearch.binarySearch(array, key);
         }
         if (array instanceof User[]) {
             System.out.println("Введите имя искомого пользователя");
@@ -39,7 +39,7 @@ public class SearchCycle<T> {
             System.out.println("Введите почту искомого пользователя");
             String mail = console.nextLine();
             User key = new User.UserBuilder().setName(name).setPassword(password).setMail(mail).createUser();
-            return BinarySearchData.binarySearch(array, key);
+            return DataBinarySearch.binarySearch(array, key);
         }
         return -10;
     }
