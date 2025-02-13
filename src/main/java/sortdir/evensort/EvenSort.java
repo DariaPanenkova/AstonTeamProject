@@ -1,6 +1,6 @@
 package sortdir.evensort;
 
-import sortdir.QuickSort;
+import sortdir.quicksorts.QuickSort;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;

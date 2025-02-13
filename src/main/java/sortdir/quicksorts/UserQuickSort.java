@@ -1,13 +1,11 @@
 package sortdir.quicksorts;
 
 import classes.User;
-import sortdir.QuickSort;
-import sortdir.QuickSortStrategy;
 import sortdir.comparators.UserComparator;
 
 import java.util.Comparator;
 
-public class QuickSortUser implements QuickSortStrategy<User> {
+public class UserQuickSort implements QuickSortStrategy<User> {
     @Override
     public User[] sort(User[] arr) {
 

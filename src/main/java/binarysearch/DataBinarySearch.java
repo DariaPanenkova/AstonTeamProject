@@ -7,7 +7,7 @@ import sortdir.comparators.BusComparator;
 import sortdir.comparators.StudentComparator;
 import sortdir.comparators.UserComparator;
 
-public class BinarySearchData {
+public class DataBinarySearch {
     public static <T> int binarySearch(T[] array, T key) {
         int index = -1;
         if (array instanceof Bus[]) {
