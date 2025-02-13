@@ -45,17 +45,25 @@ public class UserCycle {
                 if (Objects.equals(console.nextLine(), "+")) {
                     SaveToFile.getPathAndSave(sortData.sort(array));
                 }
-                int index = 0;
-                System.out.println("Хотите найти объект в массиве?\n\"+\" - да");
-                if (Objects.equals(console.nextLine(), "+")) {
-                    index = search.search(arr);
-                    if (index == -1) {
-                        continue;
+                int index;
+                while (true) {
+                    System.out.println("Хотите найти объект в массиве?\n\"+\" - да");
+                    try {
+                        if (Objects.equals(console.nextLine(), "+")) {
+                            index = search.search(arr);
+                            if (index == -1) {
+                                continue;
+                            }
+                        } else break;
+                    } catch (NumberFormatException e) {
+                        System.out.println("Неверный формат ввода");
+                        break;
                     }
-                }
-                System.out.println("Хотите сохранить объект в файл?\n\"+\" - да");
-                if (Objects.equals(console.nextLine(), "+")) {
-                    SaveToFile.getPathAndSave(arr[index]);
+                    System.out.println("Хотите сохранить объект в файл?\n\"+\" - да");
+                    if (Objects.equals(console.nextLine(), "+")) {
+                        SaveToFile.getPathAndSave(arr[index]);
+                    }
+
                 }
 
             } catch (NullPointerException e) {
