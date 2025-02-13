@@ -36,10 +36,8 @@ public class DataInputTypeCycle {
                 }
                 default: {
                     System.out.println("Неверный ввод \n");
-                    break;
                 }
             }
-            break;
         }
         return null;
     }
