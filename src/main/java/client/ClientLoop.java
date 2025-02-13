@@ -24,20 +24,25 @@ public class ClientLoop {
                 System.out.println("Выход из программы.");
                 break;
             }
+            while (true) {
 
-            try {
-                // Создание + заполнение массива
-                Object[] array = DataInputLoop.inputData(CreateArray.createArray(type, size));
+                try {
+                    // Создание + заполнение массива
+                    Object[] array = DataInputLoop.inputData(CreateArray.createArray(type, size));
+                    if (array == null) {
+                        break;
+                    }
 
-                //Варианты действий с массивом
-                int action = actionArrayMenu(array);
+                    //Варианты действий с массивом
+                    int action = actionArrayMenu(array);
 
-                if (action == 0) {
-                    break;
+                    if (action == 0) {
+                        break;
+                    }
+
+                } catch (NullPointerException | IOException e) {
+                    System.out.println();
                 }
-
-            } catch (NullPointerException | IOException e) {
-                System.out.println();
             }
         }
     }
