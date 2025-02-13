@@ -1,9 +1,9 @@
 package client;
 
 import binarysearch.DataBinarySearch;
-import classes.Bus;
-import classes.Student;
-import classes.User;
+import dataclasses.Bus;
+import dataclasses.Student;
+import dataclasses.User;
 
 import java.util.Scanner;
 

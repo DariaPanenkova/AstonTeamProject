@@ -1,6 +1,6 @@
 package sortdir.quicksorts;
 
-import classes.Student;
+import dataclasses.Student;
 import sortdir.comparators.StudentComparator;
 
 import java.util.Comparator;

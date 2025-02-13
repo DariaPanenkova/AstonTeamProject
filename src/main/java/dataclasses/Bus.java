@@ -1,4 +1,4 @@
-package classes;
+package dataclasses;
 
 import java.util.Objects;
 

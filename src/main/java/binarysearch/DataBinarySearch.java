@@ -1,8 +1,8 @@
 package binarysearch;
 
-import classes.Bus;
-import classes.Student;
-import classes.User;
+import dataclasses.Bus;
+import dataclasses.Student;
+import dataclasses.User;
 import sortdir.comparators.BusComparator;
 import sortdir.comparators.StudentComparator;
 import sortdir.comparators.UserComparator;
