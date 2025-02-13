@@ -1,10 +1,17 @@
 package cycles;
 
+import arrays.Ask;
 import arrays.CreateArray;
+import savetofile.SaveToFile;
+import sortdir.quicksorts.QuickSortData;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class UserCycle {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner console = new Scanner(System.in);
         while (true) {
             System.out.println("""
@@ -12,31 +19,47 @@ public class UserCycle {
                     1 - Автобусы
                     2 - Студенты
                     3 - Пользователи""");
-            String line = console.nextLine();
-            if (line.equalsIgnoreCase("0")) {
-                break;
+            int type;
+            int size = 0;
+            try {
+                type = Ask.askType(Integer.parseInt(console.nextLine()));
+                if (type == 0) {
+                    break;
+                }
+                System.out.println("Введите размер создаваемого массива, или \"0\" для отмены");
+                size = Integer.parseInt(console.nextLine());
+                if (size == 0) {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Неверный формат номера");
+                type = 0;
             }
-            switch (line) {
-                case "1": {
-                    if (CreateArray.createBusesArray() == 0) {
-                        break;
-                    }
-                    break;
+            try {
+                Object[] array = DataInputTypeCycle.inputData(CreateArray.createArray(type, size));
+                QuickSortData<Object> sortData = new QuickSortData<>();
+                System.out.println("Отсортированый массив:\n" + Arrays.toString(sortData.sort(array)));
+                Object[] arr = sortData.sort(array);
+                SearchCycle<Object> search = new SearchCycle<>();
+                System.out.println("Хотите сохранить отсортированный массив?\n\"+\" - да");
+                if (Objects.equals(console.nextLine(), "+")) {
+                    SaveToFile.getPathAndSave(sortData.sort(array));
                 }
-                case "2": {
-                    if (CreateArray.createStudentsArray() == 0) {
-                        break;
+                int index = 0;
+                System.out.println("Хотите найти объект в массиве?\n\"+\" - да");
+                if (Objects.equals(console.nextLine(), "+")) {
+                    index = search.search(arr);
+                    if (index == -1) {
+                        continue;
                     }
-                    break;
                 }
-                case "3": {
-                    if (CreateArray.createUsersArray() == 0) {
-                        break;
-                    }
-                    break;
+                System.out.println("Хотите сохранить объект в файл?\n\"+\" - да");
+                if (Objects.equals(console.nextLine(), "+")) {
+                    SaveToFile.getPathAndSave(arr[index]);
                 }
-                default:
-                    System.out.println("Неверный формат номера\n");
+
+            } catch (NullPointerException e) {
+                System.out.println();
             }
         }
     }

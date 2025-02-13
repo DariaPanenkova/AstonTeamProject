@@ -3,9 +3,9 @@ package classes;
 import java.util.Objects;
 
 public class User {
-    private String name;
-    private String password;
-    private String mail;
+    private final String name;
+    private final String password;
+    private final String mail;
 
     public User(UserBuilder userBuilder) {
         this.name = userBuilder.name;
@@ -30,13 +30,13 @@ public class User {
         if (this == obj) {
             return true;
         }
-        if(!(obj instanceof Bus)) {
+        if (!(obj instanceof Bus)) {
             return false;
         }
         User user = (User) obj;
-        return  Objects.equals(name, user.name)
-                &&  Objects.equals(password, user.password)
-                &&  Objects.equals(mail, user.mail);
+        return Objects.equals(name, user.name)
+                && Objects.equals(password, user.password)
+                && Objects.equals(mail, user.mail);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Имя пользователя: " + name + "Пароль: " + password + " Почта: "  + mail;
+        return "Имя пользователя: " + name + " " + "Пароль: " + password + " Почта: " + mail;
     }
 
     public static class UserBuilder {
