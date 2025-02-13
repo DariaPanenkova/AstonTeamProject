@@ -17,7 +17,8 @@ public class Randomizer {
     }
 
     public static String passwordRandomizer() {
-        char[] chars = new char[8];
+        int size = random.nextInt(5, 12);
+        char[] chars = new char[size];
         for (int i = 0; i < chars.length; i++) {
             char ch = (char) random.nextInt(50, 100);
             if (Character.isLetterOrDigit(ch)) {
