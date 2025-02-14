@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 
 public class Manual {
     public static Bus[] manualFillBusArray(Bus[] array) {
-
         for (int i = 0; i < array.length; i++) {
             System.out.println("Автобус " + (i + 1) + "\n");
             array[i] = Manual.manualCreateBus();
@@ -60,9 +59,7 @@ public class Manual {
 
         for (int i = 0; i < array.length; i++) {
             System.out.println("Пользователь " + (i + 1) + "\n");
-
             array[i] = manualCreateUser();
-
         }
         System.out.println(Arrays.toString(array) + "\n");
         return array;
@@ -78,7 +75,7 @@ public class Manual {
             Pattern namepattern = Pattern.compile("[0-9!@#$%^&*()_+|}{',./:]");
             name = console.nextLine();
             if (namepattern.matcher(name).find()) {
-                System.out.println("Имя не должно сожержать цифр и знаков");
+                System.out.println("Имя не должно содержать цифр и знаков");
             } else break;
         }
         System.out.println("Введите почту пользователя");

@@ -12,6 +12,7 @@ public class BinarySearchLoop<T> {
 
     public int search(T[] array) {
         Scanner console = new Scanner(System.in);
+        System.out.println("Введите данные для поиска");
 
         if (array instanceof Bus[]) {
             Bus key = Manual.manualCreateBus();
