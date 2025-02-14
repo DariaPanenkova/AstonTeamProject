@@ -16,8 +16,8 @@ public class DataInputLoop {
                     2 - Случайные значения
                     3 - Вручную""");
             String input = console.nextLine();
-            if (input.equalsIgnoreCase("0")){
-                break;
+            if (input.equalsIgnoreCase("0")) {
+                return null;
             }
             switch (input) {
                 case "1": {
@@ -42,6 +42,5 @@ public class DataInputLoop {
                 }
             }
         }
-        return null;
     }
 }

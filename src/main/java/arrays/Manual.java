@@ -75,8 +75,8 @@ public class Manual {
             while (true) {
                 Pattern passwordPattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*()]).{8,}$");
                 password = console.nextLine();
-                if (passwordPattern.matcher(password).find()) {
-                    System.out.println("Пароль должен содержать 8 символов, одну заглавную, одну строчную букву, цифру, и спецсимвол ");
+                if (!passwordPattern.matcher(password).find()) {
+                    System.out.println("Пароль должен содержать 8 символов, одну заглавную, одну строчную букву, цифру, и спецсимвол");
                 } else break;
             }
             array[i] = new User.UserBuilder().setName(name).setPassword(password).setMail(mail).createUser();

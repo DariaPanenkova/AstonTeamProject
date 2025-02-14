@@ -29,7 +29,8 @@ public class ClientLoop {
 
                 try {
                     // Создание + заполнение массива
-                    Object[] array = DataInputLoop.inputData(CreateArray.createArray(type, size));
+                    Object[] emptyArray = CreateArray.createArray(type, size);
+                    Object[] array = DataInputLoop.inputData(emptyArray);
                     if (array == null) {
                         break;
                     }
