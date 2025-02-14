@@ -1,7 +1,6 @@
 package client;
 
 import arrays.CreateArray;
-import savetofile.SaveToFile;
 import sortdir.evensort.EvenSortData;
 import sortdir.quicksorts.DataQuickSort;
 
@@ -25,26 +24,23 @@ public class ClientLoop {
                 System.out.println("Выход из программы.");
                 break;
             }
-            while (true) {
 
-                try {
-                    // Создание + заполнение массива
-                    Object[] emptyArray = CreateArray.createArray(type, size);
-                    Object[] array = DataInputLoop.inputData(emptyArray);
-                    if (array == null) {
-                        break;
-                    }
-
-                    //Варианты действий с массивом
-                    int action = actionArrayMenu(array);
-
-                    if (action == 0) {
-                        break;
-                    }
-
-                } catch (NullPointerException | IOException e) {
-                    System.out.println();
+            try {
+                // Создание + заполнение массива
+                Object[] array = DataInputLoop.inputData(CreateArray.createArray(type, size));
+                if (array == null) {
+                    continue;
                 }
+
+                //Варианты действий с массивом
+                int action = actionArrayMenu(array);
+
+                if (action == 0) {
+                    break;
+                }
+
+            } catch (NullPointerException | IOException e) {
+                System.out.println("Exception");
             }
         }
     }
