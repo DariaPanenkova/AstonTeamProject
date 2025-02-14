@@ -108,13 +108,13 @@ public class ArrayFill {
 
     public static Object[] manualFill(Object[] array) {
         if (ArrayCheckType.isBusArray(array)) {
-            Manual.createBus((Bus[]) array);
+            Manual.manualFillBusArray((Bus[]) array);
         }
         if (ArrayCheckType.isUsersArray(array)) {
-            Manual.createUser((User[]) array);
+            Manual.manualFillUserArray((User[]) array);
         }
         if (ArrayCheckType.isStudentsArray(array)) {
-            Manual.createStudent((Student[]) array);
+            Manual.manualFillStudentArray((Student[]) array);
         }
         return array;
     }
